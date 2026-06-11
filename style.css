@@ -1,0 +1,15 @@
+h1{
+    color :navy;
+    border-bottom: solid navy;
+}
+h2{
+    color :navy;
+}
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: hotpink;
+  text-decoration-color: hotpink;
+}

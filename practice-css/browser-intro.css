@@ -1,27 +1,39 @@
+
 p {
 	color: navy;
 }
 
 p.info {
-	font-size: 10pt;
+	font-size: small;
+	background-color: #dfdfdf;
 }
 
 h1 {
-	background-color: #7f7fcf;
+	color: white;
+	text-shadow:  1px 0 10px navy;
+}
+img {
+	float :right;
 }
 
 h2 {
-	border: solid 1px black;
+	font-family: cursive;
 	margin: 5px;
+	color: #3f3faf;
+	background: linear-gradient(.25turn,white,10%, #ffefaf);
 }
 
 div#zentai {
-	display: flex;
-	flex-direction: row;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	height: 200px;
 	width: 1024px;
+	grid-gap: 10px;
+	padding: 5px;
+
 }
 
 div#zentai > div {
-	margin-left: 5px;
 	background-color: #ffefaf;
+	grid-template-columns: 1fr 1fr;
 }
