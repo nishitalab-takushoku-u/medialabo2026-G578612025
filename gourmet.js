@@ -1,6 +1,24 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
 function print(data) {
+  console.log(data.results.shop[0].name)
+  console.log(data.results.shop[0].access)
+  console.log(data.results.shop[0].address)
+  console.log(data.results.shop[0].budget.name)
+  console.log(data.results.shop[0].genre.name)
+  console.log(data.results.shop[0].open)
+  console.log(data.results.shop[0].mobile_access)
+  console.log(data.results.shop[0].sub_genre.name)
+  console.log(data.results.shop[0].urls.pc)
+  console.log(data.results.shop[1].name)
+  console.log(data.results.shop[1].access)
+  console.log(data.results.shop[1].address)
+  console.log(data.results.shop[1].budget.name)
+  console.log(data.results.shop[1].genre.name)
+  console.log(data.results.shop[1].open)
+  console.log(data.results.shop[1].mobile_access)
+  console.log(data.results.shop[1].sub_genre.name)
+  console.log(data.results.shop[1].urls.pc)
 
 }
 
