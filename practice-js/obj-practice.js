@@ -15,4 +15,12 @@ let gakka = [
 ];
 
 //////////////// ここから下にプログラムを書きたそう!
+console.log(campus.address);
+for (let r of campus.buildingD
+    ) { 
+    console.log(r);}
+
+for (let l of gakka) {  // 配列 media.room の要素（部屋名）を繰り返し表示
+    console.log(l.name);}
+  
 
