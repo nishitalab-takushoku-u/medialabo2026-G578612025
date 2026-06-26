@@ -36,4 +36,5 @@ div#zentai {
 div#zentai > div {
 	background-color: #ffefaf;
 	grid-template-columns: 1fr 1fr;
+	padding: 10px;
 }
