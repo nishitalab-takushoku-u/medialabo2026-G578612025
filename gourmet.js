@@ -24,6 +24,9 @@ function print(data) {
 
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+  let div = document.createElement("div");
+div.id = "result";
+
 
 }
 
