@@ -26,8 +26,110 @@ function print(data) {
 function printDom(data) {
   let div = document.createElement("div");
 div.id = "result";
+document.body.insertAdjacentElement("beforeend", div);
+
+  // 1件目
+  let h3 = document.createElement("h3");
+  h3.textContent = "検索結果1件目";
+  div.insertAdjacentElement("beforeend", h3);
+
+  let ul = document.createElement("ul");
+  div.insertAdjacentElement("beforeend", ul);
+
+  let img = document.createElement("img");
+  img.src = data.results.shop[0].photo.pc.l;
+  ul.insertAdjacentElement("beforeend", img);
+
+  let li = document.createElement("li");
+  li.textContent = "名前: " + data.results.shop[0].name;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "アクセス: " + data.results.shop[0].access;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "住所: " + data.results.shop[0].address;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "予算: " + data.results.shop[0].budget.name;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "ジャンル: " + data.results.shop[0].genre.name;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "営業時間: " + data.results.shop[0].open;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "最寄駅: " + data.results.shop[0].station_name;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "サブジャンル: " + data.results.shop[0].sub_genre.name;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  let a = document.createElement("a");
+  a.href = data.results.shop[0].urls.pc;
+  a.textContent = "ご予約はこちら";
+  li.insertAdjacentElement("beforeend", a);
+  ul.insertAdjacentElement("beforeend", li);
 
 
+  // 2件目
+  h3 = document.createElement("h3");
+  h3.textContent = "検索結果2件目";
+  div.insertAdjacentElement("beforeend", h3);
+
+  ul = document.createElement("ul");
+  div.insertAdjacentElement("beforeend", ul);
+
+  img = document.createElement("img");
+  img.src = data.results.shop[1].photo.pc.l;
+  ul.insertAdjacentElement("beforeend", img);
+
+  li = document.createElement("li");
+  li.textContent = "名前: " + data.results.shop[1].name;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "アクセス: " + data.results.shop[1].access;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "住所: " + data.results.shop[1].address;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "予算: " + data.results.shop[1].budget.name;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "ジャンル: " + data.results.shop[1].genre.name;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "営業時間: " + data.results.shop[1].open;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "最寄駅: " + data.results.shop[1].station_name;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  li.textContent = "サブジャンル: " + data.results.shop[1].sub_genre.name;
+  ul.insertAdjacentElement("beforeend", li);
+
+  li = document.createElement("li");
+  a = document.createElement("a");
+  a.href = data.results.shop[1].urls.pc;
+  a.textContent = "ご予約はこちら";
+  li.insertAdjacentElement("beforeend", a);
+  ul.insertAdjacentElement("beforeend", li);
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
