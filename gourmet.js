@@ -28,7 +28,7 @@ function printDom(data) {
 div.id = "result";
 document.body.insertAdjacentElement("beforeend", div);
 
-  // 1件目
+  
   let h3 = document.createElement("h3");
   h3.textContent = "検索結果1件目";
   div.insertAdjacentElement("beforeend", h3);
@@ -80,7 +80,7 @@ document.body.insertAdjacentElement("beforeend", div);
   ul.insertAdjacentElement("beforeend", li);
 
 
-  // 2件目
+
   h3 = document.createElement("h3");
   h3.textContent = "検索結果2件目";
   div.insertAdjacentElement("beforeend", h3);
