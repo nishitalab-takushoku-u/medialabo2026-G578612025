@@ -1,140 +1,94 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
 function print(data) {
-  console.log(data.results.shop[0].name)
-  console.log(data.results.shop[0].access)
-  console.log(data.results.shop[0].address)
-  console.log(data.results.shop[0].budget.name)
-  console.log(data.results.shop[0].genre.name)
-  console.log(data.results.shop[0].open)
-  console.log(data.results.shop[0].mobile_access)
-  console.log(data.results.shop[0].sub_genre.name)
-  console.log(data.results.shop[0].urls.pc)
-  console.log(data.results.shop[1].name)
-  console.log(data.results.shop[1].access)
-  console.log(data.results.shop[1].address)
-  console.log(data.results.shop[1].budget.name)
-  console.log(data.results.shop[1].genre.name)
-  console.log(data.results.shop[1].open)
-  console.log(data.results.shop[1].mobile_access)
-  console.log(data.results.shop[1].sub_genre.name)
-  console.log(data.results.shop[1].urls.pc)
-
+for (let i = 0; i < data.results.shop.length; i++) {
+console.log(data.results.shop[i].name);
+console.log(data.results.shop[i].access);
+console.log(data.results.shop[i].address);
+console.log(data.results.shop[i].budget.name);
+console.log(data.results.shop[i].genre.name);
+console.log(data.results.shop[i].open);
+console.log(data.results.shop[i].mobile_access);
+if (data.results.shop[i].sub_genre != undefined) {
+console.log(data.results.shop[i].sub_genre.name);
+}
+else {
+console.log("サブジャンルなし");
+}
+console.log(data.results.shop[i].urls.pc);
+}
 }
 
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
-  let old = document.querySelector("#result");
-if (old) {
-    old.remove();
+
+let old = document.querySelector("#result");
+if (old != null) {
+old.remove();
 }
-  let div = document.createElement("div");
+
+let div = document.createElement("div");
 div.id = "result";
 document.body.insertAdjacentElement("beforeend", div);
 
-  
-  let h3 = document.createElement("h3");
-  h3.textContent = "検索結果1件目";
-  div.insertAdjacentElement("beforeend", h3);
+for (let i = 0; i < data.results.shop.length; i++) {
 
-  let ul = document.createElement("ul");
-  div.insertAdjacentElement("beforeend", ul);
+let h3 = document.createElement("h3");
+h3.textContent = "検索結果" + (i + 1) + "件目";
+div.insertAdjacentElement("beforeend", h3);
 
-  let img = document.createElement("img");
-  img.src = data.results.shop[0].photo.pc.l;
-  ul.insertAdjacentElement("beforeend", img);
+let ul = document.createElement("ul");
+div.insertAdjacentElement("beforeend", ul);
 
-  let li = document.createElement("li");
-  li.textContent = "名前: " + data.results.shop[0].name;
-  ul.insertAdjacentElement("beforeend", li);
+let img = document.createElement("img");
+img.src = data.results.shop[i].photo.pc.l;
+ul.insertAdjacentElement("beforeend", img);
 
-  li = document.createElement("li");
-  li.textContent = "アクセス: " + data.results.shop[0].access;
-  ul.insertAdjacentElement("beforeend", li);
+let li = document.createElement("li");
+li.textContent = "名前: " + data.results.shop[i].name;
+ul.insertAdjacentElement("beforeend", li);
 
-  li = document.createElement("li");
-  li.textContent = "住所: " + data.results.shop[0].address;
-  ul.insertAdjacentElement("beforeend", li);
+li = document.createElement("li");
+li.textContent = "アクセス: " + data.results.shop[i].access;
+ul.insertAdjacentElement("beforeend", li);
 
-  li = document.createElement("li");
-  li.textContent = "予算: " + data.results.shop[0].budget.name;
-  ul.insertAdjacentElement("beforeend", li);
+li = document.createElement("li");
+li.textContent = "住所: " + data.results.shop[i].address;
+ul.insertAdjacentElement("beforeend", li);
 
-  li = document.createElement("li");
-  li.textContent = "ジャンル: " + data.results.shop[0].genre.name;
-  ul.insertAdjacentElement("beforeend", li);
+li = document.createElement("li");
+li.textContent = "予算: " + data.results.shop[i].budget.name;
+ul.insertAdjacentElement("beforeend", li);
 
-  li = document.createElement("li");
-  li.textContent = "営業時間: " + data.results.shop[0].open;
-  ul.insertAdjacentElement("beforeend", li);
+li = document.createElement("li");
+li.textContent = "ジャンル: " + data.results.shop[i].genre.name;
+ul.insertAdjacentElement("beforeend", li);
 
-  li = document.createElement("li");
-  li.textContent = "最寄駅: " + data.results.shop[0].station_name;
-  ul.insertAdjacentElement("beforeend", li);
+li = document.createElement("li");
+li.textContent = "営業時間: " + data.results.shop[i].open;
+ul.insertAdjacentElement("beforeend", li);
 
-  li = document.createElement("li");
-  li.textContent = "サブジャンル: " + data.results.shop[0].sub_genre.name;
-  ul.insertAdjacentElement("beforeend", li);
+li = document.createElement("li");
+li.textContent = "最寄駅: " + data.results.shop[i].station_name;
+ul.insertAdjacentElement("beforeend", li);
 
-  li = document.createElement("li");
-  let a = document.createElement("a");
-  a.href = data.results.shop[0].urls.pc;
-  a.textContent = "ご予約はこちら";
-  li.insertAdjacentElement("beforeend", a);
-  ul.insertAdjacentElement("beforeend", li);
+li = document.createElement("li");
+if (data.results.shop[i].sub_genre != undefined) {
+li.textContent = "サブジャンル: " + data.results.shop[i].sub_genre.name;
+}
+else {
+li.textContent = "サブジャンル: なし";
+}
 
+ul.insertAdjacentElement("beforeend", li);
 
-
-  h3 = document.createElement("h3");
-  h3.textContent = "検索結果2件目";
-  div.insertAdjacentElement("beforeend", h3);
-
-  ul = document.createElement("ul");
-  div.insertAdjacentElement("beforeend", ul);
-
-  img = document.createElement("img");
-  img.src = data.results.shop[1].photo.pc.l;
-  ul.insertAdjacentElement("beforeend", img);
-
-  li = document.createElement("li");
-  li.textContent = "名前: " + data.results.shop[1].name;
-  ul.insertAdjacentElement("beforeend", li);
-
-  li = document.createElement("li");
-  li.textContent = "アクセス: " + data.results.shop[1].access;
-  ul.insertAdjacentElement("beforeend", li);
-
-  li = document.createElement("li");
-  li.textContent = "住所: " + data.results.shop[1].address;
-  ul.insertAdjacentElement("beforeend", li);
-
-  li = document.createElement("li");
-  li.textContent = "予算: " + data.results.shop[1].budget.name;
-  ul.insertAdjacentElement("beforeend", li);
-
-  li = document.createElement("li");
-  li.textContent = "ジャンル: " + data.results.shop[1].genre.name;
-  ul.insertAdjacentElement("beforeend", li);
-
-  li = document.createElement("li");
-  li.textContent = "営業時間: " + data.results.shop[1].open;
-  ul.insertAdjacentElement("beforeend", li);
-
-  li = document.createElement("li");
-  li.textContent = "最寄駅: " + data.results.shop[1].station_name;
-  ul.insertAdjacentElement("beforeend", li);
-
-  li = document.createElement("li");
-  li.textContent = "サブジャンル: " + data.results.shop[1].sub_genre.name;
-  ul.insertAdjacentElement("beforeend", li);
-  
-
-  li = document.createElement("li");
-  a = document.createElement("a");
-  a.href = data.results.shop[1].urls.pc;
-  a.textContent = "ご予約はこちら";
-  li.insertAdjacentElement("beforeend", a);
-  ul.insertAdjacentElement("beforeend", li);
+li = document.createElement("li");
+let a = document.createElement("a");
+a.href = data.results.shop[i].urls.pc;
+a.textContent = "ご予約はこちら";
+li.insertAdjacentElement("beforeend", a);
+ul.insertAdjacentElement("beforeend", li);
+}
 }
 
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
@@ -148,18 +102,88 @@ function sendRequest() {
 let input = document.querySelector("#genre");
 let genre = input.value;
 
+// 入力欄が空ならラジオボタンを使う
+if (genre == "") {
+
+let radio = document.querySelector('input[name="food"]:checked');
+
+if (radio != null) {
+genre = radio.value;
+}
+
+}
+
+// 日本語入力をコードに変換
+if (genre == "居酒屋") {
+genre = "G001";
+}
+else if (genre == "ダイニングバー・バル") {
+genre = "G002";
+}
+else if (genre == "創作料理") {
+genre = "G003";
+}
+else if (genre == "和食") {
+genre = "G004";
+}
+else if (genre == "洋食") {
+genre = "G005";
+}
+else if (genre == "イタリアン・フレンチ") {
+genre = "G006";
+}
+else if (genre == "中華") {
+genre = "G007";
+}
+else if (genre == "焼肉・ホルモン") {
+genre = "G008";
+}
+else if (genre == "アジア・エスニック料理") {
+genre = "G009";
+}
+else if (genre == "各国料理") {
+genre = "G010";
+}
+else if (genre == "カラオケ・パーティ") {
+genre = "G011";
+}
+else if (genre == "バー・カクテル") {
+genre = "G012";
+}
+else if (genre == "ラーメン") {
+genre = "G013";
+}
+else if (genre == "カフェ・スイーツ") {
+genre = "G014";
+}
+else if (genre == "その他グルメ") {
+genre = "G015";
+}
+else if (genre == "お好み焼き・もんじゃ") {
+genre = "G016";
+}
+else if (genre == "韓国料理") {
+genre = "G017";
+}
+
 let url =
 "https://www.nishita-lab.org/web-contents/jsons/hotpepper/"
 + genre + ".json";
- // 通信開始
-    axios.get(url)
-        .then(showResult)   // 通信成功
-        .catch(showError)   // 通信失敗
-        .then(finish);      // 通信の最後の処理
-  
+
+axios.get(url)
+.then(showResult)
+.catch(showError)
+.then(finish);
 
 }
-  
+
+
+let topButton = document.querySelector("#top");
+topButton.addEventListener("click", topPage);
+
+function topPage() {
+window.scrollTo(0, 0);
+}
 
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
